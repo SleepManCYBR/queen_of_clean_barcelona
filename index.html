@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Queen of Clean Barcelona — Limpieza profesional</title>
+<meta name="description" content="Limpieza profesional de hogares, oficinas y alquileres turísticos en Barcelona.">
+<link rel="icon" href="https://i.ibb.co/209q48XH/photo-2026-09-22-22-47-35-Photoroom.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="header" id="header">
+  <div class="container header__inner">
+    <a href="#home" class="brand">
+      <img src="https://i.ibb.co/209q48XH/photo-2026-09-22-22-47-35-Photoroom.png" alt="Queen of Clean Barcelona" class="brand__logo">
+    </a>
+
+    <nav class="nav" id="nav">
+      <a href="#services" data-i18n="nav.services">Servicios</a>
+      <a href="#gallery" data-i18n="nav.gallery">Galería</a>
+      <a href="#process" data-i18n="nav.process">Proceso</a>
+      <a href="#contact" data-i18n="nav.contact">Contacto</a>
+    </nav>
+
+    <div class="header__actions">
+      <div class="lang-switch" role="group" aria-label="Idioma / Мова">
+        <button type="button" class="lang-btn" data-lang="es">ES</button>
+        <button type="button" class="lang-btn" data-lang="uk">UA</button>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero" id="home">
+    <div class="container hero__inner">
+      <div class="hero__content">
+        <h1 data-i18n="hero.title">Limpieza impecable para tu hogar y tu negocio en Barcelona</h1>
+        <p class="hero__subhead" data-i18n="hero.subhead">Equipo profesional, productos de calidad y resultados que se notan desde el primer día.</p>
+        <div class="hero__actions">
+          <a href="#contact" class="btn btn--primary" data-i18n="hero.ctaPrimary">Solicitar presupuesto</a>
+          <a href="https://www.instagram.com/queen_of_clean_barcelona/" target="_blank" rel="noopener" class="btn btn--ghost" data-i18n="hero.ctaSecondary">Ver Instagram</a>
+        </div>
+      </div>
+      <div class="hero__visual" aria-hidden="true">
+        <div class="hero__glow"></div>
+        <img src="https://i.ibb.co/209q48XH/photo-2026-09-22-22-47-35-Photoroom.png" alt="" class="hero__logo">
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="container">
+      <h2 data-i18n="services.title">Nuestros servicios</h2>
+      <p class="section__lead" data-i18n="services.lead">Adaptamos cada limpieza al espacio y al tiempo que tengas disponible.</p>
+
+      <div class="service-list">
+        <div class="service-row">
+          <span class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v9.5a1 1 0 0 0 1 1H17.5a1 1 0 0 0 1-1V10"/><path d="M9.5 20.5V14h5v6.5"/></svg>
+          </span>
+          <div class="service-text">
+            <h3 data-i18n="services.item1.title">Limpieza de hogar</h3>
+            <p data-i18n="services.item1.desc">Mantenimiento regular para que tu casa esté siempre lista, semana tras semana.</p>
+          </div>
+        </div>
+
+        <div class="service-row">
+          <span class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 16 3-9 3 9"/><path d="M6.5 12.5h3"/><path d="m14 16 2.5-7L19 16"/><path d="M15.5 13h2"/><path d="M4 19.5h16"/></svg>
+          </span>
+          <div class="service-text">
+            <h3 data-i18n="services.item2.title">Limpieza profunda</h3>
+            <p data-i18n="services.item2.desc">Rincones, electrodomésticos y detalles que se suelen dejar para después.</p>
+          </div>
+        </div>
+
+        <div class="service-row">
+          <span class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3.5" width="16" height="17" rx="1"/><path d="M8 8h2M14 8h2M8 12h2M14 12h2M8 16h2M14 16h2"/></svg>
+          </span>
+          <div class="service-text">
+            <h3 data-i18n="services.item3.title">Limpieza de oficinas</h3>
+            <p data-i18n="services.item3.desc">Espacios de trabajo cuidados para tu equipo y para quien los visita.</p>
+          </div>
+        </div>
+
+        <div class="service-row">
+          <span class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5 12 4l9 4.5-9 4.5-9-4.5Z"/><path d="M3 8.5V16l9 4.5 9-4.5V8.5"/><path d="M12 13v7.5"/></svg>
+          </span>
+          <div class="service-text">
+            <h3 data-i18n="services.item4.title">Limpieza de salida</h3>
+            <p data-i18n="services.item4.desc">Entrega o recogida de llaves en mudanzas, sin preocupaciones.</p>
+          </div>
+        </div>
+
+        <div class="service-row">
+          <span class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 0 1 13.5-5.7L20 9"/><path d="M20 4v5h-5"/><path d="M20 12a8 8 0 0 1-13.5 5.7L4 15"/><path d="M4 20v-5h5"/></svg>
+          </span>
+          <div class="service-text">
+            <h3 data-i18n="services.item5.title">Preparación entre huéspedes</h3>
+            <p data-i18n="services.item5.desc">Limpieza rápida y a fondo para pisos turísticos, entre una reserva y la siguiente.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery" id="gallery">
+    <div class="container gallery__head">
+      <h2 data-i18n="gallery.title">Nuestro trabajo</h2>
+      <p class="section__lead" data-i18n="gallery.lead">Algunos espacios en los que hemos trabajado recientemente.</p>
+    </div>
+    <div class="gallery-grid">
+      <img src="https://i.ibb.co/whjwncHL/503221003-17909026917153462-5641050785620346716-n.jpg" alt="Queen of Clean Barcelona — trabajo realizado" loading="lazy">
+      <img src="https://i.ibb.co/CK81Qqgc/514763542-17912344869153462-5809185751027440998-n.jpg" alt="Queen of Clean Barcelona — trabajo realizado" loading="lazy">
+      <img src="https://i.ibb.co/HDYCCjQy/515243811-17912679234153462-1034083926135627164-n.jpg" alt="Queen of Clean Barcelona — trabajo realizado" loading="lazy">
+      <img src="https://i.ibb.co/rfRLZn25/515495259-17912679279153462-3292840462035126592-n.jpg" alt="Queen of Clean Barcelona — trabajo realizado" loading="lazy">
+      <img src="https://i.ibb.co/1Jzwy6nz/515804746-17912679249153462-2898396449401434636-n.jpg" alt="Queen of Clean Barcelona — trabajo realizado" loading="lazy">
+    </div>
+  </section>
+
+  <section class="process" id="process">
+    <div class="container">
+      <h2 data-i18n="process.title">Cómo trabajamos</h2>
+      <div class="process-grid">
+        <div class="process-step">
+          <span class="process-num">1</span>
+          <h3 data-i18n="process.step1.title">Cuéntanos qué necesitas</h3>
+          <p data-i18n="process.step1.desc">Escríbenos por Instagram o WhatsApp con los detalles de tu espacio.</p>
+        </div>
+        <div class="process-step">
+          <span class="process-num">2</span>
+          <h3 data-i18n="process.step2.title">Coordinamos el horario</h3>
+          <p data-i18n="process.step2.desc">Elegimos juntos el día y la hora que mejor te venga.</p>
+        </div>
+        <div class="process-step">
+          <span class="process-num">3</span>
+          <h3 data-i18n="process.step3.title">Disfruta el resultado</h3>
+          <p data-i18n="process.step3.desc">Nuestro equipo llega puntual y deja todo impecable.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="why">
+    <div class="container why-grid">
+      <div class="why-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>
+        <span data-i18n="why.item1">Puntualidad</span>
+      </div>
+      <div class="why-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c2 2.5 4.5 4.7 4.5 8.2a4.5 4.5 0 0 1-9 0c0-3.5 2.5-5.7 4.5-8.2Z"/></svg>
+        <span data-i18n="why.item2">Productos de calidad</span>
+      </div>
+      <div class="why-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8.5" r="3.2"/><path d="M5.5 20c1.2-3.7 4-5.5 6.5-5.5s5.3 1.8 6.5 5.5"/></svg>
+        <span data-i18n="why.item3">Atención personalizada</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="container contact__inner">
+      <div>
+        <h2 data-i18n="contact.title">Hablemos</h2>
+        <p data-i18n="contact.lead">Cuéntanos qué espacio necesitas limpiar y te respondemos con un presupuesto claro.</p>
+      </div>
+      <div class="contact__actions">
+        <a href="https://www.instagram.com/queen_of_clean_barcelona/" target="_blank" rel="noopener" class="btn btn--primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="0.8" fill="currentColor" stroke="none"/></svg>
+          <span data-i18n="contact.instagram">Escríbenos por Instagram</span>
+        </a>
+        <a href="https://wa.me/34600000000" target="_blank" rel="noopener" class="btn btn--ghost">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3.5a8.5 8.5 0 0 0-7.3 12.8L3.5 20.5l4.3-1.1A8.5 8.5 0 1 0 12 3.5Z"/><path d="M8.7 8.8c.2-.5.5-.5.8-.5h.5c.2 0 .4 0 .5.4.2.5.6 1.5.6 1.6.1.1.1.3 0 .4-.1.2-.2.3-.3.4l-.4.4c-.1.1-.2.3-.1.5.2.4.7 1.1 1.4 1.7.9.8 1.6 1 1.9 1.1.2.1.4.1.5-.1l.6-.7c.2-.2.3-.2.5-.1l1.4.7c.2.1.3.1.4.3.1.2.1.9-.2 1.3-.3.5-1.3 1-2.3.8-1.7-.4-3.4-1.4-4.7-2.7-1.1-1-1.9-2.3-2.2-3.1-.2-.6-.1-1.4.3-1.7Z" fill="currentColor" stroke="none"/></svg>
+          <span data-i18n="contact.whatsapp">WhatsApp</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <img src="https://i.ibb.co/209q48XH/photo-2026-09-22-22-47-35-Photoroom.png" alt="Queen of Clean Barcelona" class="footer__logo">
+    <p data-i18n="footer.copy">© 2026 Queen of Clean Barcelona. Todos los derechos reservados.</p>
+    <a href="https://www.instagram.com/queen_of_clean_barcelona/" target="_blank" rel="noopener" aria-label="Instagram" class="footer__social">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="0.8" fill="currentColor" stroke="none"/></svg>
+    </a>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var translations = {
+    es: {
+      nav: { services: "Servicios", gallery: "Galería", process: "Proceso", contact: "Contacto" },
+      hero: {
+        title: "Limpieza impecable para tu hogar y tu negocio en Barcelona",
+        subhead: "Equipo profesional, productos de calidad y resultados que se notan desde el primer día.",
+        ctaPrimary: "Solicitar presupuesto",
+        ctaSecondary: "Ver Instagram"
+      },
+      services: {
+        title: "Nuestros servicios",
+        lead: "Adaptamos cada limpieza al espacio y al tiempo que tengas disponible.",
+        item1: { title: "Limpieza de hogar", desc: "Mantenimiento regular para que tu casa esté siempre lista, semana tras semana." },
+        item2: { title: "Limpieza profunda", desc: "Rincones, electrodomésticos y detalles que se suelen dejar para después." },
+        item3: { title: "Limpieza de oficinas", desc: "Espacios de trabajo cuidados para tu equipo y para quien los visita." },
+        item4: { title: "Limpieza de salida", desc: "Entrega o recogida de llaves en mudanzas, sin preocupaciones." },
+        item5: { title: "Preparación entre huéspedes", desc: "Limpieza rápida y a fondo para pisos turísticos, entre una reserva y la siguiente." }
+      },
+      gallery: { title: "Nuestro trabajo", lead: "Algunos espacios en los que hemos trabajado recientemente." },
+      process: {
+        title: "Cómo trabajamos",
+        step1: { title: "Cuéntanos qué necesitas", desc: "Escríbenos por Instagram o WhatsApp con los detalles de tu espacio." },
+        step2: { title: "Coordinamos el horario", desc: "Elegimos juntos el día y la hora que mejor te venga." },
+        step3: { title: "Disfruta el resultado", desc: "Nuestro equipo llega puntual y deja todo impecable." }
+      },
+      why: { item1: "Puntualidad", item2: "Productos de calidad", item3: "Atención personalizada" },
+      contact: {
+        title: "Hablemos",
+        lead: "Cuéntanos qué espacio necesitas limpiar y te respondemos con un presupuesto claro.",
+        instagram: "Escríbenos por Instagram",
+        whatsapp: "WhatsApp"
+      },
+      footer: { copy: "© 2026 Queen of Clean Barcelona. Todos los derechos reservados." }
+    },
+    uk: {
+      nav: { services: "Послуги", gallery: "Галерея", process: "Процес", contact: "Контакти" },
+      hero: {
+        title: "Бездоганна чистота для вашого дому та бізнесу в Барселоні",
+        subhead: "Професійна команда, якісні засоби та результат, який видно з першого дня.",
+        ctaPrimary: "Замовити розрахунок",
+        ctaSecondary: "Instagram"
+      },
+      services: {
+        title: "Наші послуги",
+        lead: "Підлаштовуємо кожне прибирання під простір і час, який у вас є.",
+        item1: { title: "Прибирання дому", desc: "Регулярний догляд, щоб оселя завжди була готова приймати гостей." },
+        item2: { title: "Генеральне прибирання", desc: "Кутки, техніка та деталі, які часто залишають без уваги." },
+        item3: { title: "Прибирання офісів", desc: "Охайний робочий простір для команди та тих, хто вас відвідує." },
+        item4: { title: "Прибирання при переїзді", desc: "Здача або приймання ключів без зайвих турбот." },
+        item5: { title: "Підготовка між заїздами", desc: "Швидке й ретельне прибирання туристичного житла між бронюваннями." }
+      },
+      gallery: { title: "Наші роботи", lead: "Кілька просторів, у яких ми нещодавно працювали." },
+      process: {
+        title: "Як ми працюємо",
+        step1: { title: "Розкажіть, що потрібно", desc: "Напишіть в Instagram або WhatsApp деталі вашого простору." },
+        step2: { title: "Домовляємось про час", desc: "Обираємо разом зручний день і годину." },
+        step3: { title: "Насолоджуйтесь результатом", desc: "Команда приїде вчасно й залишить бездоганну чистоту." }
+      },
+      why: { item1: "Пунктуальність", item2: "Якісні засоби", item3: "Індивідуальний підхід" },
+      contact: {
+        title: "Зв'яжімося",
+        lead: "Розкажіть, який простір потрібно прибрати, і ми надішлемо чіткий розрахунок вартості.",
+        instagram: "Написати в Instagram",
+        whatsapp: "WhatsApp"
+      },
+      footer: { copy: "© 2026 Queen of Clean Barcelona. Усі права захищено." }
+    }
+  };
+
+  function getValue(obj, path) {
+    return path.split(".").reduce(function (acc, key) {
+      return acc && acc[key] !== undefined ? acc[key] : null;
+    }, obj);
+  }
+
+  function applyLang(lang) {
+    if (lang !== "uk") lang = "es";
+    document.documentElement.lang = lang;
+    document.querySelectorAll("[data-i18n]").forEach(function (el) {
+      var value = getValue(translations[lang], el.getAttribute("data-i18n"));
+      if (value) el.textContent = value;
+    });
+    document.querySelectorAll(".lang-btn").forEach(function (btn) {
+      btn.classList.toggle("is-active", btn.getAttribute("data-lang") === lang);
+    });
+    try { localStorage.setItem("qc_lang", lang); } catch (e) {}
+  }
+
+  document.querySelectorAll(".lang-btn").forEach(function (btn) {
+    btn.addEventListener("click", function () { applyLang(btn.getAttribute("data-lang")); });
+  });
+
+  var navToggle = document.getElementById("navToggle");
+  var nav = document.getElementById("nav");
+  navToggle.addEventListener("click", function () {
+    var open = nav.classList.toggle("is-open");
+    navToggle.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+  nav.querySelectorAll("a").forEach(function (link) {
+    link.addEventListener("click", function () {
+      nav.classList.remove("is-open");
+      navToggle.setAttribute("aria-expanded", "false");
+    });
+  });
+
+  var header = document.getElementById("header");
+  window.addEventListener("scroll", function () {
+    header.classList.toggle("is-scrolled", window.scrollY > 8);
+  }, { passive: true });
+
+  var savedLang;
+  try { savedLang = localStorage.getItem("qc_lang"); } catch (e) {}
+
+  if (savedLang) {
+    applyLang(savedLang);
+  } else {
+    fetch("https://ipwho.is/")
+      .then(function (res) { return res.json(); })
+      .then(function (data) {
+        applyLang(data && data.country_code === "UA" ? "uk" : "es");
+      })
+      .catch(function () { applyLang("es"); });
+  }
+})();
+</script>
+
+</body>
+</html>
