@@ -46,8 +46,14 @@
         <h1 data-i18n="hero.title">Limpieza impecable para tu hogar y tu negocio en Barcelona</h1>
         <p class="hero__subhead" data-i18n="hero.subhead">Equipo profesional, productos de calidad y resultados que se notan desde el primer día.</p>
         <div class="hero__actions">
-          <a href="#contact" class="btn btn--primary" data-i18n="hero.ctaPrimary">Solicitar presupuesto</a>
-          <a href="https://www.instagram.com/queen_of_clean_barcelona/" target="_blank" rel="noopener" class="btn btn--ghost" data-i18n="hero.ctaSecondary">Ver Instagram</a>
+          <a href="#contact" class="btn btn--primary btn--lg">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5.5" width="16" height="15" rx="2.5"/><path d="M4 10h16"/><path d="M8 3.5v3M16 3.5v3"/><path d="m9 14.5 2 2 4-4.2"/></svg>
+            <span data-i18n="hero.ctaPrimary">Solicitar presupuesto</span>
+          </a>
+          <a href="https://www.instagram.com/queen_of_clean_barcelona/" target="_blank" rel="noopener" class="btn btn--ghost btn--lg">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="0.8" fill="currentColor" stroke="none"/></svg>
+            <span data-i18n="hero.ctaSecondary">Ver Instagram</span>
+          </a>
         </div>
       </div>
       <div class="hero__visual" data-reveal>
@@ -137,9 +143,6 @@
 
   <section class="gallery" id="gallery">
     <div class="container">
-      <h2 data-reveal data-i18n="gallery.title">Nuestro trabajo</h2>
-      <p class="section__lead" data-reveal data-i18n="gallery.lead">Algunos espacios en los que hemos trabajado recientemente.</p>
-
       <div class="gallery-widget" data-reveal>
         <div class="gallery-viewport">
           <div class="gallery-track" id="galleryTrack">
@@ -222,6 +225,10 @@
   </div>
 </footer>
 
+<a href="#contact" class="scroll-fab" id="scrollFab" aria-label="Ir al presupuesto" data-i18n-aria="fab.order">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16"/><path d="m5 13 7 7 7-7"/></svg>
+</a>
+
 <script>
 (function () {
   var translations = {
@@ -254,7 +261,8 @@
         title: "Hablemos",
         lead: "Cuéntanos qué espacio necesitas limpiar y te respondemos con un presupuesto claro."
       },
-      footer: { tagline: "Limpieza profesional en Barcelona" }
+      footer: { tagline: "Limpieza profesional en Barcelona" },
+      fab: { order: "Ir al presupuesto" }
     },
     uk: {
       nav: { services: "Послуги", gallery: "Галерея", process: "Процес", contact: "Контакти" },
@@ -285,7 +293,8 @@
         title: "Зв'яжімося",
         lead: "Розкажіть, який простір потрібно прибрати, і ми надішлемо чіткий розрахунок вартості."
       },
-      footer: { tagline: "Професійне прибирання в Барселоні" }
+      footer: { tagline: "Професійне прибирання в Барселоні" },
+      fab: { order: "Перейти до замовлення" }
     }
   };
 
@@ -346,49 +355,154 @@
     header.classList.toggle("is-scrolled", window.scrollY > 8);
   }, { passive: true });
 
-  /* Gallery carousel (center preview + side peeks) */
+  /* Active section highlight in header (scrollspy) */
+  var navLinks = Array.prototype.slice.call(nav.querySelectorAll("a"));
+  var fab = document.getElementById("scrollFab");
+  var spyObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      var link = nav.querySelector('a[href="#' + entry.target.id + '"]');
+      if (!link) return;
+      if (entry.isIntersecting) {
+        navLinks.forEach(function (l) { l.classList.remove("is-current"); });
+        link.classList.add("is-current");
+      }
+      if (entry.target.id === "contact" && fab) {
+        fab.classList.toggle("is-hidden", entry.isIntersecting);
+      }
+    });
+  }, { rootMargin: "-40% 0px -55% 0px", threshold: 0 });
+  navLinks.forEach(function (link) {
+    var target = document.getElementById(link.getAttribute("href").slice(1));
+    if (target) spyObserver.observe(target);
+  });
+
+  /* Gallery carousel — infinite loop (both directions) + swipe */
   var viewport = document.querySelector(".gallery-viewport");
   var track = document.getElementById("galleryTrack");
-  var slides = Array.prototype.slice.call(track.children);
+  var realSlides = Array.prototype.slice.call(track.children);
+  var total = realSlides.length;
   var dotsWrap = document.getElementById("galleryDots");
-  var current = 0;
 
-  slides.forEach(function (slide, idx) {
+  realSlides.forEach(function (slide, idx) {
     var dot = document.createElement("button");
     dot.type = "button";
     dot.className = "gallery-dot";
     dot.setAttribute("aria-label", "Slide " + (idx + 1));
     dot.addEventListener("click", function () { goTo(idx); });
     dotsWrap.appendChild(dot);
+  });
 
+  /* Clone the first/last slide so there's always a neighbour to peek at on both sides */
+  var headClone = realSlides[total - 1].cloneNode(true);
+  var tailClone = realSlides[0].cloneNode(true);
+  headClone.classList.add("is-clone");
+  tailClone.classList.add("is-clone");
+  headClone.setAttribute("aria-hidden", "true");
+  tailClone.setAttribute("aria-hidden", "true");
+  track.insertBefore(headClone, realSlides[0]);
+  track.appendChild(tailClone);
+
+  var slides = Array.prototype.slice.call(track.children); /* real slides live at index 1..total */
+  var pos = 1;
+  var current = 0;
+
+  slides.forEach(function (slide, idx) {
     slide.addEventListener("click", function () {
-      if (idx !== current) goTo(idx);
+      if (idx !== pos) step(idx - pos);
     });
   });
 
-  function positionTrack() {
-    var active = slides[current];
-    var offset = (viewport.clientWidth / 2) - (active.offsetLeft + active.offsetWidth / 2);
-    track.style.transform = "translateX(" + offset + "px)";
-  }
-
-  function goTo(idx) {
-    current = (idx + slides.length) % slides.length;
+  function updateClasses() {
     slides.forEach(function (slide, i) {
       slide.classList.remove("is-active", "is-adjacent");
-      if (i === current) slide.classList.add("is-active");
-      else if (i === (current - 1 + slides.length) % slides.length || i === (current + 1) % slides.length) slide.classList.add("is-adjacent");
+      if (i === pos) slide.classList.add("is-active");
+      else if (i === pos - 1 || i === pos + 1) slide.classList.add("is-adjacent");
     });
-    positionTrack();
     var dots = dotsWrap.querySelectorAll(".gallery-dot");
     dots.forEach(function (d, di) { d.classList.toggle("is-active", di === current); });
   }
-  goTo(0);
 
-  window.addEventListener("resize", positionTrack);
+  function positionTrack(animate) {
+    var active = slides[pos];
+    var offset = (viewport.clientWidth / 2) - (active.offsetLeft + active.offsetWidth / 2);
+    if (animate === false) {
+      track.style.transition = "none";
+      track.style.transform = "translateX(" + offset + "px)";
+      void track.offsetHeight;
+      track.style.transition = "";
+    } else {
+      track.style.transform = "translateX(" + offset + "px)";
+    }
+  }
 
-  document.getElementById("galleryPrev").addEventListener("click", function () { goTo(current - 1); });
-  document.getElementById("galleryNext").addEventListener("click", function () { goTo(current + 1); });
+  function step(delta) {
+    pos += delta;
+    current = (current + delta + total) % total;
+    updateClasses();
+    positionTrack();
+  }
+
+  function goTo(idx) {
+    var target = ((idx % total) + total) % total;
+    var delta = target - current;
+    if (delta > total / 2) delta -= total;
+    if (delta < -total / 2) delta += total;
+    step(delta);
+  }
+
+  /* Seamless loop reset once the clone has fully scrolled into view */
+  track.addEventListener("transitionend", function (e) {
+    if (e.propertyName !== "transform") return;
+    if (pos === 0) {
+      pos = total;
+      positionTrack(false);
+    } else if (pos === total + 1) {
+      pos = 1;
+      positionTrack(false);
+    }
+  });
+
+  updateClasses();
+  positionTrack(false);
+  window.addEventListener("resize", function () { positionTrack(false); });
+
+  document.getElementById("galleryPrev").addEventListener("click", function () { step(-1); });
+  document.getElementById("galleryNext").addEventListener("click", function () { step(1); });
+
+  /* Touch swipe support (mobile) */
+  var dragging = false;
+  var dragStartX = 0;
+  var dragBaseOffset = 0;
+
+  function currentOffset() {
+    var match = /translateX\(([-.\d]+)px\)/.exec(track.style.transform);
+    return match ? parseFloat(match[1]) : 0;
+  }
+
+  viewport.addEventListener("touchstart", function (e) {
+    dragging = true;
+    dragStartX = e.touches[0].clientX;
+    dragBaseOffset = currentOffset();
+    track.style.transition = "none";
+  }, { passive: true });
+
+  viewport.addEventListener("touchmove", function (e) {
+    if (!dragging) return;
+    var delta = e.touches[0].clientX - dragStartX;
+    track.style.transform = "translateX(" + (dragBaseOffset + delta) + "px)";
+  }, { passive: true });
+
+  viewport.addEventListener("touchend", function (e) {
+    if (!dragging) return;
+    dragging = false;
+    track.style.transition = "";
+    var delta = e.changedTouches[0].clientX - dragStartX;
+    if (Math.abs(delta) > 40) {
+      step(delta < 0 ? 1 : -1);
+    } else {
+      positionTrack();
+    }
+  });
 
   /* Scroll reveal */
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
