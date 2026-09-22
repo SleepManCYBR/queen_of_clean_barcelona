@@ -81,8 +81,8 @@
       <h2 data-reveal data-i18n="services.title">Nuestros servicios</h2>
       <p class="section__lead" data-reveal data-i18n="services.lead">Adaptamos cada limpieza al espacio y al tiempo que tengas disponible.</p>
 
-      <div class="service-grid">
-        <div class="service-card" data-reveal>
+      <div class="service-list">
+        <div class="service-row" data-reveal>
           <span class="service-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16"/><path d="M8 20V9.5l3-4 3 4V20"/><path d="M9.5 13.5h3"/></svg>
           </span>
@@ -92,7 +92,7 @@
           </div>
         </div>
 
-        <div class="service-card" data-reveal>
+        <div class="service-row" data-reveal>
           <span class="service-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 15 16 8"/><path d="m14 3 2 2-9 9-3.5.5.5-3.5 9-9Z"/><path d="M4.5 20h6"/></svg>
           </span>
@@ -102,7 +102,7 @@
           </div>
         </div>
 
-        <div class="service-card" data-reveal>
+        <div class="service-row" data-reveal>
           <span class="service-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="3.5" width="15" height="17" rx="1"/><path d="M8 7.5h2M14 7.5h2M8 11.5h2M14 11.5h2M8 15.5h2M14 15.5h2"/></svg>
           </span>
@@ -112,7 +112,7 @@
           </div>
         </div>
 
-        <div class="service-card" data-reveal>
+        <div class="service-row" data-reveal>
           <span class="service-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.5 12 4.2l8.5 4.3-8.5 4.3-8.5-4.3Z"/><path d="M3.5 8.5V16l8.5 4.3 8.5-4.3V8.5"/><path d="M12 12.8V20.3"/></svg>
           </span>
@@ -122,7 +122,7 @@
           </div>
         </div>
 
-        <div class="service-card" data-reveal>
+        <div class="service-row" data-reveal>
           <span class="service-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 0 1 13.6-5.7L20 8.5"/><path d="M20 3.8v4.7h-4.7"/><path d="M20 12a8 8 0 0 1-13.6 5.7L4 15.5"/><path d="M4 20.2v-4.7h4.7"/></svg>
           </span>
@@ -312,8 +312,18 @@
     try { localStorage.setItem("qc_lang", lang); } catch (e) {}
   }
 
+  function switchLang(lang) {
+    document.body.classList.add("is-translating");
+    window.setTimeout(function () {
+      applyLang(lang);
+      window.requestAnimationFrame(function () {
+        document.body.classList.remove("is-translating");
+      });
+    }, 160);
+  }
+
   document.querySelectorAll(".lang-btn").forEach(function (btn) {
-    btn.addEventListener("click", function () { applyLang(btn.getAttribute("data-lang")); });
+    btn.addEventListener("click", function () { switchLang(btn.getAttribute("data-lang")); });
   });
 
   var navToggle = document.getElementById("navToggle");
@@ -336,30 +346,46 @@
     header.classList.toggle("is-scrolled", window.scrollY > 8);
   }, { passive: true });
 
-  /* Gallery carousel */
+  /* Gallery carousel (center preview + side peeks) */
+  var viewport = document.querySelector(".gallery-viewport");
   var track = document.getElementById("galleryTrack");
-  var slides = track.children;
+  var slides = Array.prototype.slice.call(track.children);
   var dotsWrap = document.getElementById("galleryDots");
   var current = 0;
 
-  for (var i = 0; i < slides.length; i++) {
+  slides.forEach(function (slide, idx) {
     var dot = document.createElement("button");
     dot.type = "button";
     dot.className = "gallery-dot";
-    dot.setAttribute("aria-label", "Slide " + (i + 1));
-    (function (idx) {
-      dot.addEventListener("click", function () { goTo(idx); });
-    })(i);
+    dot.setAttribute("aria-label", "Slide " + (idx + 1));
+    dot.addEventListener("click", function () { goTo(idx); });
     dotsWrap.appendChild(dot);
+
+    slide.addEventListener("click", function () {
+      if (idx !== current) goTo(idx);
+    });
+  });
+
+  function positionTrack() {
+    var active = slides[current];
+    var offset = (viewport.clientWidth / 2) - (active.offsetLeft + active.offsetWidth / 2);
+    track.style.transform = "translateX(" + offset + "px)";
   }
 
   function goTo(idx) {
     current = (idx + slides.length) % slides.length;
-    track.style.transform = "translateX(-" + (current * 100) + "%)";
+    slides.forEach(function (slide, i) {
+      slide.classList.remove("is-active", "is-adjacent");
+      if (i === current) slide.classList.add("is-active");
+      else if (i === (current - 1 + slides.length) % slides.length || i === (current + 1) % slides.length) slide.classList.add("is-adjacent");
+    });
+    positionTrack();
     var dots = dotsWrap.querySelectorAll(".gallery-dot");
     dots.forEach(function (d, di) { d.classList.toggle("is-active", di === current); });
   }
   goTo(0);
+
+  window.addEventListener("resize", positionTrack);
 
   document.getElementById("galleryPrev").addEventListener("click", function () { goTo(current - 1); });
   document.getElementById("galleryNext").addEventListener("click", function () { goTo(current + 1); });
