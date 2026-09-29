@@ -1,8 +1,382 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Queen of Clean Barcelona — Limpieza profesional</title>
+<meta name="description" content="Limpieza profesional de hogares, oficinas y alquileres turísticos en Barcelona.">
+<link rel="icon" href="https://i.ibb.co/pBZVXNk4/Photoroom.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="header" id="header">
+  <div class="container header__inner">
+    <a href="#home" class="brand">
+      <img src="https://i.ibb.co/pBZVXNk4/Photoroom.png" alt="Queen of Clean Barcelona" class="brand__logo">
+    </a>
+
+    <nav class="nav" id="nav">
+      <a href="#services" data-i18n="nav.services">Servicios</a>
+      <a href="#process" data-i18n="nav.process">Proceso</a>
+      <a href="#contact" data-i18n="nav.contact">Contacto</a>
+    </nav>
+
+    <div class="header__actions">
+      <div class="lang-switch" role="group" aria-label="Idioma / Мова">
+        <button type="button" class="lang-btn" data-lang="es">ES</button>
+        <button type="button" class="lang-btn" data-lang="uk">UA</button>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero" id="home">
+    <div class="container hero__inner">
+      <div class="hero__content" data-reveal>
+        <h1 data-i18n="hero.title">Limpieza impecable para tu hogar y tu negocio en Barcelona</h1>
+        <p class="hero__subhead" data-i18n="hero.subhead">Equipo profesional, productos de calidad y resultados que se notan desde el primer día.</p>
+        <div class="hero__actions">
+          <a href="#contact" class="btn btn--primary btn--lg">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5.5" width="16" height="15" rx="2.5"/><path d="M4 10h16"/><path d="M8 3.5v3M16 3.5v3"/><path d="m9 14.5 2 2 4-4.2"/></svg>
+            <span data-i18n="hero.ctaPrimary">Solicitar presupuesto</span>
+          </a>
+          <a href="https://www.instagram.com/queen_of_clean_barcelona/" target="_blank" rel="noopener" class="btn btn--ghost btn--lg">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="0.8" fill="currentColor" stroke="none"/></svg>
+            <span data-i18n="hero.ctaSecondary">Ver Instagram</span>
+          </a>
+        </div>
+      </div>
+      <div class="hero__visual" data-reveal>
+        <div class="hero__blob" aria-hidden="true"></div>
+        <img src="https://i.ibb.co/CK81Qqgc/514763542-17912344869153462-5809185751027440998-n.jpg" alt="Equipo de Queen of Clean Barcelona limpiando un sofá" class="hero__photo">
+      </div>
+    </div>
+
+    <div class="trust-bar" data-reveal>
+      <div class="container trust-bar__inner">
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.2"/><path d="M12 7.6V12l3 2"/></svg>
+          <span data-i18n="trust.item1">Puntualidad</span>
+        </div>
+        <span class="trust-divider" aria-hidden="true"></span>
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.2c2 2.6 4.6 4.9 4.6 8.5a4.6 4.6 0 0 1-9.2 0c0-3.6 2.6-5.9 4.6-8.5Z"/></svg>
+          <span data-i18n="trust.item2">Productos de calidad</span>
+        </div>
+        <span class="trust-divider" aria-hidden="true"></span>
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8.3" r="3.1"/><path d="M5.6 20c1.1-3.6 3.9-5.4 6.4-5.4s5.3 1.8 6.4 5.4"/></svg>
+          <span data-i18n="trust.item3">Atención personalizada</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <h2 data-i18n="services.title">Nuestros servicios</h2>
+        <p class="section__lead" data-i18n="services.lead">Todo lo que necesitas para que tu espacio quede impecable.</p>
+      </div>
+
+      <div class="services-grid">
+
+        <article class="service-card" data-reveal>
+          <span class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4" width="13.5" height="5" rx="1.5"/><path d="M17 6.5h2.5v4H12v3"/><rect x="10.5" y="13.5" width="3" height="7" rx="1"/></svg>
+          </span>
+          <h3 data-i18n="services.s1">Limpieza tras reforma</h3>
+        </article>
+
+        <article class="service-card" data-reveal>
+          <span class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="15" r="3.6"/><path d="m10.6 12.4 8.4-8.4"/><path d="m16 7 2.5 2.5"/><path d="m13.5 9.5 2 2"/></svg>
+          </span>
+          <h3 data-i18n="services.s2">Limpieza al salir el inquilino</h3>
+        </article>
+
+        <article class="service-card" data-reveal>
+          <span class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.8 11.2 12 4l8.2 7.2"/><path d="M6 9.6v10h12v-10"/><path d="M10 19.6v-5h4v5"/></svg>
+          </span>
+          <h3 data-i18n="services.s3">Limpieza general de casas y pisos</h3>
+        </article>
+
+        <article class="service-card" data-reveal>
+          <span class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m11 3.5 1.6 4.6L17.2 9.7l-4.6 1.6L11 15.9l-1.6-4.6L4.8 9.7l4.6-1.6Z"/><path d="m18 15 .8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8Z"/></svg>
+          </span>
+          <h3 data-i18n="services.s4">Limpieza de mantenimiento de casas y pisos</h3>
+        </article>
+
+        <article class="service-card" data-reveal>
+          <span class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3.5" width="14" height="17" rx="1.6"/><path d="M9 8h2M13 8h2M9 12h2M13 12h2"/><path d="M10.5 20.5v-4h3v4"/></svg>
+          </span>
+          <h3 data-i18n="services.s5">Limpieza de oficinas</h3>
+        </article>
+
+        <article class="service-card" data-reveal>
+          <span class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c2.6 3.3 5.5 5.8 5.5 9.3a5.5 5.5 0 0 1-11 0c0-3.5 2.9-6 5.5-9.3Z"/><path d="M9.6 13.6a2.6 2.6 0 0 0 2.2 2.2"/></svg>
+          </span>
+          <h3 data-i18n="services.s6">Limpieza y lavado de terrazas</h3>
+        </article>
+
+      </div>
+
+      <div class="services-extra" data-reveal>
+        <div class="services-extra__text">
+          <span class="services-extra__tag" data-i18n="services.also">También</span>
+          <h3 data-i18n="services.dryTitle">Limpieza en seco de muebles tapizados</h3>
+          <p data-i18n="services.dryLead">Devolvemos el aspecto y la frescura a tus textiles con máquina profesional.</p>
+        </div>
+        <ul class="chips">
+          <li data-i18n="services.d1">Sofás</li>
+          <li data-i18n="services.d2">Sillas</li>
+          <li data-i18n="services.d3">Colchones</li>
+          <li data-i18n="services.d4">Alfombras</li>
+          <li data-i18n="services.d5">Cortinas</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="process" id="process">
+    <div class="container">
+      <h2 data-reveal data-i18n="process.title">Cómo trabajamos</h2>
+      <div class="process-grid">
+        <div class="process-step" data-reveal>
+          <span class="process-num">1</span>
+          <h3 data-i18n="process.step1.title">Cuéntanos qué necesitas</h3>
+          <p data-i18n="process.step1.desc">Escríbenos por Instagram o WhatsApp con los detalles de tu espacio.</p>
+        </div>
+        <div class="process-step" data-reveal>
+          <span class="process-num">2</span>
+          <h3 data-i18n="process.step2.title">Coordinamos el horario</h3>
+          <p data-i18n="process.step2.desc">Elegimos juntos el día y la hora que mejor te venga.</p>
+        </div>
+        <div class="process-step" data-reveal>
+          <span class="process-num">3</span>
+          <h3 data-i18n="process.step3.title">Disfruta el resultado</h3>
+          <p data-i18n="process.step3.desc">Nuestro equipo llega puntual y deja todo impecable.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="container contact__inner" data-reveal>
+      <div>
+        <h2 data-i18n="contact.title">Hablemos</h2>
+        <p data-i18n="contact.lead">Cuéntanos qué espacio necesitas limpiar y te respondemos con un presupuesto claro.</p>
+      </div>
+      <div class="contact__actions">
+        <a href="https://wa.me/34612417421" target="_blank" rel="noopener" class="btn btn--primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3.5a8.5 8.5 0 0 0-7.3 12.8L3.5 20.5l4.3-1.1A8.5 8.5 0 1 0 12 3.5Z"/><path d="M8.7 8.8c.2-.5.5-.5.8-.5h.5c.2 0 .4 0 .5.4.2.5.6 1.5.6 1.6.1.1.1.3 0 .4-.1.2-.2.3-.3.4l-.4.4c-.1.1-.2.3-.1.5.2.4.7 1.1 1.4 1.7.9.8 1.6 1 1.9 1.1.2.1.4.1.5-.1l.6-.7c.2-.2.3-.2.5-.1l1.4.7c.2.1.3.1.4.3.1.2.1.9-.2 1.3-.3.5-1.3 1-2.3.8-1.7-.4-3.4-1.4-4.7-2.7-1.1-1-1.9-2.3-2.2-3.1-.2-.6-.1-1.4.3-1.7Z" fill="currentColor" stroke="none"/></svg>
+          <span>+34 612 41 74 21</span>
+        </a>
+        <a href="https://www.instagram.com/queen_of_clean_barcelona/" target="_blank" rel="noopener" class="btn btn--ghost">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="0.8" fill="currentColor" stroke="none"/></svg>
+          <span>@queen_of_clean_barcelona</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <img src="https://i.ibb.co/pBZVXNk4/Photoroom.png" alt="Queen of Clean Barcelona" class="footer__logo">
+    <p data-i18n="footer.tagline">Limpieza profesional en Barcelona</p>
+    <div class="footer__social">
+      <a href="https://www.instagram.com/queen_of_clean_barcelona/" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="0.8" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="https://wa.me/34612417421" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3.5a8.5 8.5 0 0 0-7.3 12.8L3.5 20.5l4.3-1.1A8.5 8.5 0 1 0 12 3.5Z"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<a href="#contact" class="scroll-fab" id="scrollFab" aria-label="Ir al presupuesto" data-i18n-aria="fab.order">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16"/><path d="m5 13 7 7 7-7"/></svg>
+</a>
+
+<script>
+(function () {
+  var translations = {
+    es: {
+      nav: { services: "Servicios", process: "Proceso", contact: "Contacto" },
+      hero: {
+        title: "Limpieza impecable para tu hogar y tu negocio en Barcelona",
+        subhead: "Equipo profesional, productos de calidad y resultados que se notan desde el primer día.",
+        ctaPrimary: "Solicitar presupuesto",
+        ctaSecondary: "Ver Instagram"
+      },
+      trust: { item1: "Puntualidad", item2: "Productos de calidad", item3: "Atención personalizada" },
+      services: {
+        title: "Nuestros servicios",
+        lead: "Todo lo que necesitas para que tu espacio quede impecable.",
+        s1: "Limpieza tras reforma",
+        s2: "Limpieza al salir el inquilino",
+        s3: "Limpieza general de casas y pisos",
+        s4: "Limpieza de mantenimiento de casas y pisos",
+        s5: "Limpieza de oficinas",
+        s6: "Limpieza y lavado de terrazas",
+        also: "También",
+        dryTitle: "Limpieza en seco de muebles tapizados",
+        dryLead: "Devolvemos el aspecto y la frescura a tus textiles con máquina profesional.",
+        d1: "Sofás",
+        d2: "Sillas",
+        d3: "Colchones",
+        d4: "Alfombras",
+        d5: "Cortinas"
+      },
+      process: {
+        title: "Cómo trabajamos",
+        step1: { title: "Cuéntanos qué necesitas", desc: "Escríbenos por Instagram o WhatsApp con los detalles de tu espacio." },
+        step2: { title: "Coordinamos el horario", desc: "Elegimos juntos el día y la hora que mejor te venga." },
+        step3: { title: "Disfruta el resultado", desc: "Nuestro equipo llega puntual y deja todo impecable." }
+      },
+      contact: {
+        title: "Hablemos",
+        lead: "Cuéntanos qué espacio necesitas limpiar y te respondemos con un presupuesto claro."
+      },
+      footer: { tagline: "Limpieza profesional en Barcelona" },
+      fab: { order: "Ir al presupuesto" }
+    },
+    uk: {
+      nav: { services: "Послуги", process: "Процес", contact: "Контакти" },
+      hero: {
+        title: "Бездоганна чистота для вашого дому та бізнесу в Барселоні",
+        subhead: "Професійна команда, якісні засоби та результат, який видно з першого дня.",
+        ctaPrimary: "Замовити розрахунок",
+        ctaSecondary: "Instagram"
+      },
+      trust: { item1: "Пунктуальність", item2: "Якісні засоби", item3: "Індивідуальний підхід" },
+      services: {
+        title: "Наші послуги",
+        lead: "Усе, що потрібно, щоб ваш простір виглядав бездоганно.",
+        s1: "Прибирання після ремонту",
+        s2: "Прибирання після виїзду орендаря",
+        s3: "Генеральне прибирання будинків та квартир",
+        s4: "Підтримуюче прибирання будинків та квартир",
+        s5: "Прибирання офісів",
+        s6: "Прибирання і миття терас",
+        also: "Також",
+        dryTitle: "Хімчистка м'яких меблів",
+        dryLead: "Повертаємо вигляд і свіжість вашим текстильним виробам професійною технікою.",
+        d1: "Дивани",
+        d2: "Стільці",
+        d3: "Матраци",
+        d4: "Килими",
+        d5: "Штори"
+      },
+      process: {
+        title: "Як ми працюємо",
+        step1: { title: "Розкажіть, що потрібно", desc: "Напишіть в Instagram або WhatsApp деталі вашого простору." },
+        step2: { title: "Домовляємось про час", desc: "Обираємо разом зручний день і годину." },
+        step3: { title: "Насолоджуйтесь результатом", desc: "Команда приїде вчасно й залишить бездоганну чистоту." }
+      },
+      contact: {
+        title: "Зв'яжімося",
+        lead: "Розкажіть, який простір потрібно прибрати, і ми надішлемо чіткий розрахунок вартості."
+      },
+      footer: { tagline: "Професійне прибирання в Барселоні" },
+      fab: { order: "Перейти до замовлення" }
+    }
+  };
+
+  function getValue(obj, path) {
+    return path.split(".").reduce(function (acc, key) {
+      return acc && acc[key] !== undefined ? acc[key] : null;
+    }, obj);
+  }
+
+  function applyLang(lang) {
+    if (lang !== "uk") lang = "es";
+    document.documentElement.lang = lang;
+    document.querySelectorAll("[data-i18n]").forEach(function (el) {
+      var value = getValue(translations[lang], el.getAttribute("data-i18n"));
+      if (value) el.textContent = value;
+    });
+    document.querySelectorAll("[data-i18n-aria]").forEach(function (el) {
+      var value = getValue(translations[lang], el.getAttribute("data-i18n-aria"));
+      if (value) el.setAttribute("aria-label", value);
+    });
+    document.querySelectorAll(".lang-btn").forEach(function (btn) {
+      btn.classList.toggle("is-active", btn.getAttribute("data-lang") === lang);
+    });
+    try { localStorage.setItem("qc_lang", lang); } catch (e) {}
+  }
+
+  function switchLang(lang) {
+    document.body.classList.add("is-translating");
+    window.setTimeout(function () {
+      applyLang(lang);
+      window.requestAnimationFrame(function () {
+        document.body.classList.remove("is-translating");
+      });
+    }, 160);
+  }
+
+  document.querySelectorAll(".lang-btn").forEach(function (btn) {
+    btn.addEventListener("click", function () { switchLang(btn.getAttribute("data-lang")); });
+  });
+
+  var navToggle = document.getElementById("navToggle");
+  var nav = document.getElementById("nav");
+  navToggle.addEventListener("click", function () {
+    var open = nav.classList.toggle("is-open");
+    navToggle.classList.toggle("is-open", open);
+    navToggle.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+  nav.querySelectorAll("a").forEach(function (link) {
+    link.addEventListener("click", function () {
+      nav.classList.remove("is-open");
+      navToggle.classList.remove("is-open");
+      navToggle.setAttribute("aria-expanded", "false");
+    });
+  });
+
+  var header = document.getElementById("header");
+  window.addEventListener("scroll", function () {
+    header.classList.toggle("is-scrolled", window.scrollY > 8);
+  }, { passive: true });
+
+  /* Active section highlight in header (scrollspy) */
+  var navLinks = Array.prototype.slice.call(nav.querySelectorAll("a"));
+  var fab = document.getElementById("scrollFab");
+  var spyObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      var link = nav.querySelector('a[href="#' + entry.target.id + '"]');
+      if (!link) return;
+      if (entry.isIntersecting) {
+        navLinks.forEach(function (l) { l.classList.remove("is-current"); });
+        link.classList.add("is-current");
+      }
+      if (entry.target.id === "contact" && fab) {
+        fab.classList.toggle("is-hidden", entry.isIntersecting);
+      }
+    });
   }, { rootMargin: "-40% 0px -55% 0px", threshold: 0 });
   navLinks.forEach(function (link) {
     var target = document.getElementById(link.getAttribute("href").slice(1));
     if (target) spyObserver.observe(target);
   });
+
   /* Scroll reveal */
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var revealEls = document.querySelectorAll("[data-reveal]");
@@ -19,9 +393,11 @@
     }, { threshold: 0.15, rootMargin: "0px 0px -60px 0px" });
     revealEls.forEach(function (el) { io.observe(el); });
   }
+
   /* Language detection */
   var savedLang;
   try { savedLang = localStorage.getItem("qc_lang"); } catch (e) {}
+
   if (savedLang) {
     applyLang(savedLang);
   } else {
@@ -34,5 +410,6 @@
   }
 })();
 </script>
+
 </body>
 </html>
